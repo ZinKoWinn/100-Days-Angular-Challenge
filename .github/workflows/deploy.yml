@@ -8,16 +8,23 @@ jobs:
        runs-on: ubuntu-latest
        container: node:16.16.0-alpine3.16
        steps:
-        - name: Cache node modules
-          uses: actions/cache@v2
-          with:
-           path: |
-            **/node_modules
-             key: v1-npm-deps-${{ hashFiles('**/package-lock.json') }}
-             restore-keys: v1-npm-deps-
-        - run: npm install --legacy-peer-deps && npm run build && cd .. && mkdir -p public/zkw && mv angular-challanges-zkw/dist/angular-challanges-zkw/* public/zkw
-        - name: Upload production build
-          uses: actions/upload-artifact@v3
-          with:
-            name: public
-            path: public
+       - run: npm install --legacy-peer-deps && npm run build && cd .. && mkdir -p public/zkw && mv angular-challanges-zkw/dist/angular-challanges-zkw/* public/zkw
+       - name: Cache node modules
+         id: cache-nodemodules
+         uses: actions/cache@v2
+         env:
+          cache-name: cache-node-modules
+         with:
+           # caching node_modules
+           path: node_modules
+           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+           restore-keys: |
+             ${{ runner.os }}-build-${{ env.cache-name }}-
+             ${{ runner.os }}-build-
+             ${{ runner.os }}-
+            
+       - name: Upload production build
+         uses: actions/upload-artifact@v3
+         with:
+          name: public
+          path: public
