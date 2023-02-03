@@ -5,10 +5,10 @@ on:
       - main
 jobs:
     deploy_prod:
-       runs-on: windows-latest
+       runs-on: ubuntu-latest
        container: node:16.16.0-alpine3.16
        steps:
-       - run: npm install --legacy-peer-deps && npm run build && cd .. && mkdir -p public/zkw && mv dist/angular-challanges-zkw/* public/zkw
+       - run: npm install --legacy-peer-deps && npm run build && cd ../.. && mkdir -p public/zkw && mv dist/angular-challanges-zkw/* public/zkw
        - name: Cache node modules
          id: cache-nodemodules
          uses: actions/cache@v2
