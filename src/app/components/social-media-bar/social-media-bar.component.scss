@@ -1,0 +1,45 @@
+.social-media-bar-container {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  z-index: 3;
+
+  a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    transition: all 0.3;
+    font-size: 20px;
+    text-align: center;
+
+    &.facebook {
+      background-color: #3b5998;
+    }
+
+    &.instagram {
+      background-color: #C13584;
+    }
+
+
+    &.linked-in {
+      background-color: #0E76A8;
+    }
+
+
+    &.twitter {
+      background-color: #1DA1F2;
+    }
+
+
+    &.youtube {
+      background-color: #C4302B;
+    }
+
+
+    &:hover {
+      background-color: black;
+    }
+  }
+}

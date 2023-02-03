@@ -1,0 +1,18 @@
+<app-toolbar [title]="'100 days Angular Challenge'">
+  <ul>
+    <li routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Componetns</li>
+    <li routerLink="directives" routerLinkActive="active">Directives</li>
+    <li routerLink="services" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Services</li>
+    <li routerLink="pipes" routerLinkActive="active">Pipes</li>
+    <li routerLink="other" routerLinkActive="active">Other</li>
+  </ul>
+</app-toolbar>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<app-footer></app-footer>
+
+<app-top-of-page></app-top-of-page>
+<app-snackbar></app-snackbar>

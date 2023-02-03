@@ -1,0 +1,13 @@
+<div class="loader-overlay" [style.display]="isLoading ? 'block' : 'none'">
+    <div class="loader-container">
+        <div class="loader">
+            <ng-container [ngSwitch]="loaderType">
+                <div class="circular" *ngSwitchCase="LoaderType.Circular"></div>
+                <h1 *ngSwitchCase="LoaderType.Loading">{{loadingtext}}</h1>
+            </ng-container>
+        </div>
+    </div>
+    <div style="position: absolute; bottom: 3%;">
+        <button class="btn" (click)="stopLoading()">Stop Loading</button>
+    </div>
+</div>

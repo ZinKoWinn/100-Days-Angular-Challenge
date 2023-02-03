@@ -1,0 +1,25 @@
+@import '../../../styles';
+
+ul {
+  position: relative;
+
+  .item-container {
+    position: absolute;
+    width: 100%;
+    background-color: white;
+
+    @include box-shadow();
+
+    li {
+      list-style: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      padding: 3px;
+
+      &:hover {
+        background-color: $blue;
+        color: white;
+      }
+    }
+  }
+}

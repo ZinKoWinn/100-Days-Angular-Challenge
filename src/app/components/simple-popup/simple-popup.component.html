@@ -1,0 +1,4 @@
+<div class="popup-container" (click)="show()">
+    <ng-content></ng-content>
+    <span class="popup-text" [@fade-in-out] *ngIf="isShown">{{message}}</span>
+</div>

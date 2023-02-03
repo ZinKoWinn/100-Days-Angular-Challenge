@@ -1,0 +1,72 @@
+<app-banner-cut-out [title]="'Pipes'" [imageUrl]="'assets/images/banner.jpg'">
+</app-banner-cut-out>
+
+<app-card [iconClasses]="'fas fa-info-circle'" [title]="'Truncate'" [subTitle]="'Pipes'">
+    <p body>
+        {{'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, ea, fugit magnam voluptatum odit fugiat
+        cumque cum temporibus repellendus corrupti reprehenderit deserunt consequuntur laudantium libero beatae adipisci
+        suscipit atque commodi.' | truncate : 75}}
+    </p>
+</app-card>
+
+<app-card [iconClasses]="'fas fa-info-circle'" [title]="'Credit Card Formatter'" [subTitle]="'Pipes'">
+    <div body>
+        <p>{{'1111222233334444' | creditCardFormatter}}</p>
+        <p>{{'111111111111111111111111111111' | creditCardFormatter}}</p>
+        <p>{{'a111222233334444' | creditCardFormatter}}</p>
+    </div>
+</app-card>
+
+<app-card [iconClasses]="'fas fa-info-circle'" [title]="'Flatten'" [subTitle]="'Pipes'">
+    <div body>
+        {{flattenData | flatten}}
+    </div>
+
+    <div footer>
+        <button class="btn" (click)="modifyFlattenData()">Modify</button>
+        <button class="btn" (click)="reassignFlattenData()">Reassign</button>
+    </div>
+</app-card>
+
+<app-card [iconClasses]="'fas fa-info-circle'" [title]="'Filter Term'" [subTitle]="'Pipes'">
+    <div body>
+        <input type="text" [(ngModel)]="searchFilterTerm">
+    </div>
+    <div footer>
+        {{['Hello', 'World', 'Hello World'] | filterTerm: searchFilterTerm}}
+    </div>
+</app-card>
+
+<app-card [iconClasses]="'fas fa-info-circle'" [title]="'RichText'" [subTitle]="'Pipes'">
+    <div body>
+        <div [innerHtml]="html | richText"> </div>
+    </div>
+</app-card>
+
+<app-card [iconClasses]="'fas fa-info-circle'" [title]="'Sort By'" [subTitle]="'Pipes'">
+    <div body style="display: grid; grid-gap:10px;">
+        <div>
+            <h5>String Ascending</h5>
+            <p>{{stringArray | sortBy}}</p>
+        </div>
+
+        <div>
+            <h5>String Descending</h5>
+            <p>{{stringArray | sortBy : false}}</p>
+        </div>
+    </div>
+</app-card>
+
+<app-card [iconClasses]="'fas fa-info-circle'" [title]="'Sort By Key'" [subTitle]="'Pipes'">
+    <div body style="display: grid; grid-gap:10px;">
+        <div>
+            <h5>String Ascending</h5>
+            <p *ngFor="let obj of objectArray | sortByKey : 'content'">{{obj.content}}</p>
+        </div>
+
+        <div>
+            <h5>String Descending</h5>
+            <p *ngFor="let obj of objectArray | sortByKey : 'content' : false">{{obj.content}}</p>
+        </div>
+    </div>
+</app-card>

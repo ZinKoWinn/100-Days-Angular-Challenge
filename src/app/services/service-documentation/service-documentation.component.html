@@ -1,0 +1,28 @@
+<app-banner-cut-out [title]="'Services'" [imageUrl]="'assets/images/banner.jpg'">
+</app-banner-cut-out>
+
+<app-card [iconClasses]="'fas fa-info-circle'" [title]="'User'" [subTitle]="'Services'">
+    <div body>
+        <p>{{user | json}}</p>
+    </div>
+</app-card>
+
+<app-card [iconClasses]="'fas fa-info-circle'" [title]="'Local Storage'" [subTitle]="'Services'">
+    <div body>
+        <p>{{ state | json}}</p>
+    </div>
+
+    <div footer>
+        <button class="btn" (click)="updateState()">Update State</button>
+    </div>
+</app-card>
+
+<app-card [iconClasses]="'fas fa-info-circle'" [title]="'Param Example'" [subTitle]="'Services'">
+    <div body>
+        <p>{{userIdExample | json}}</p>
+    </div>
+
+    <div footer>
+        <button class="btn" routerLink="/services/3">Go To Route Id 3</button>
+    </div>
+</app-card>

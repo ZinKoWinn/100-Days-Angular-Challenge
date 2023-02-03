@@ -1,0 +1,36 @@
+<app-banner-cut-out [title]="'Others'" [imageUrl]="'assets/images/banner.jpg'">
+</app-banner-cut-out>
+
+<app-card [iconClasses]="'fas fa-info-circle'" [title]="'Fade In Out'" [subTitle]="'Other - Animation'">
+    <div body>
+        <h2 [@fade-in-out] *ngIf="isDOMIn">Hello</h2>
+        <h2 [@fade-in-out] *ngIf="!isDOMIn">World</h2>
+    </div>
+
+    <div footer>
+        <button class="btn" (click)="isDOMIn = !isDOMIn">Toggle Animation</button>
+    </div>
+</app-card>
+
+<app-card [iconClasses]="'fas fa-info-circle'" [title]="'Form Dirty Guard'" [subTitle]="'Other - Guard'">
+    <div body>
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <div>
+                <div class="name">
+                    <input type="text" placeholder="Your Name" formControlName="name">
+                </div>
+            </div>
+
+            <button class="btn">Submit</button>
+        </form>
+    </div>
+</app-card>
+
+<app-card [iconClasses]="'fas fa-info-circle'" [title]="'Slide Right'" [subTitle]="'Other - Animation'">
+    <div body>
+        <app-tabs body [tabs]="tabs" (selectedTabIndex)="selectedTab = $event">
+            <h1 [@slide-right] *ngIf="selectedTab === 0">Tab1 Example</h1>
+            <h1 [@slide-right] *ngIf="selectedTab === 1">Tab2 Example</h1>
+        </app-tabs>
+    </div>
+</app-card>
