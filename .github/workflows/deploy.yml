@@ -27,7 +27,7 @@ jobs:
         - name: Build the application
           run: npm run build
         - name: Move to public
-          run: mkdir -p public/zkw && mv dist/angular-challanges-zkw/* public/zkw
+          run: mkdir -p public && mv dist/angular-challanges-zkw/* public
         - name: Production Artifact File
           uses: actions/upload-artifact@v3
           with:
@@ -37,5 +37,5 @@ jobs:
           uses: peaceiris/actions-gh-pages@v3
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
-            target-branch: main
-            publish-dir: ./dist/angular-challanges-zkw
+            publish_branch: gh-pages
+            publish_dir: ./public
