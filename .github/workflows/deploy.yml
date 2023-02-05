@@ -38,4 +38,4 @@ jobs:
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
             target-branch: gh-pages
-            publish-dir: ./public
+            publish-dir: dist/angular-challanges-zkw
