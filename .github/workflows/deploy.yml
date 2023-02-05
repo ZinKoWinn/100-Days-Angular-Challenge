@@ -28,7 +28,7 @@ jobs:
           run: npm run build
         - name: Move to public
           run: mkdir -p public/zkw && mv dist/angular-challanges-zkw/* public/zkw
-        - name: Production Artifact
+        - name: Production Artifact File
           uses: actions/upload-artifact@v3
           with:
             name: public
