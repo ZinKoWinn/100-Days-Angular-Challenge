@@ -37,5 +37,5 @@ jobs:
           uses: peaceiris/actions-gh-pages@v3
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
-            target-branch: gh-pages
-            publish-dir: dist/angular-challanges-zkw
+            target-branch: main
+            publish-dir: ./dist/angular-challanges-zkw
