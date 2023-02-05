@@ -36,6 +36,6 @@ jobs:
         - name: Deploy to github page
           uses: peaceiris/actions-gh-pages@v3
           with:
-            token: ${{ secrets.ACCESS_TOKEN }}
+            token: ${{ secrets.GITHUB_TOKEN  }}
             target-branch: gh-pages
             publish-dir: ./public/zkw
