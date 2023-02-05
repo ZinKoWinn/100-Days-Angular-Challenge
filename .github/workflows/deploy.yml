@@ -21,18 +21,14 @@ jobs:
            restore-keys: |
              ${{ runner.os }}-build-${{ env.cache-name }}-
              ${{ runner.os }}-build-
-             ${{ runner.os }}-
-             
+             ${{ runner.os }}-      
         - name: Install dependencies
           run: npm ci --legacy-peer-deps
         - name: Build the application
           run: npm run build
+        - name: Move to public
+          run: mkdir -p public/zkw && cd ../../ && mv dist/angular-challanges-zkw/* public/zkw
         - name: Deploy to production
-          uses: peaceiris/actions-gh-pages@v3
-          with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: dist/angular-challanges-zkw
-        - name: Upload production build
           uses: actions/upload-artifact@v3
           with:
             name: public
